@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio Pribadi</title>
+    <style>
+        /* Gaya dasar (CSS Sederhana) */
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding-top: 50px;
+        }
+        h1 {
+            color: #333;
+        }
+        #salam-btn {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+        }
+        #salam-btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Selamat Datang di Portofolio Saya</h1>
+
+    <button id="salam-btn">
+        Klik untuk Salam
+    </button>
+
+    <script>
+        // 1. Definisikan Nama Anda
+        const namaSaya = "Firmansyah"; // GANTI DENGAN NAMA ANDA
+
+        // 2. Dapatkan elemen tombol dari HTML menggunakan ID
+        const tombolSalam = document.getElementById('salam-btn');
+
+        // 3. Tambahkan event listener (pendengar kejadian) pada tombol
+        tombolSalam.addEventListener('click', function() {
+            // Ketika tombol diklik, tampilkan kotak alert
+            alert(`Halo, saya ${namaSaya}! Selamat datang di portofolio saya.`);
+        });
+    </script>
+
+</body>
+</html>
