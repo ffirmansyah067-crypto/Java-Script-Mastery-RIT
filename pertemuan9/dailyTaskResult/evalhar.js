@@ -16,3 +16,4 @@ delete bukuFavorit.penulis;
 for (let key in bukuFavorit) {
     console.log(`Pada Key => "${key}" Valuenya => "${bukuFavorit[key]}"`);
 }
+
