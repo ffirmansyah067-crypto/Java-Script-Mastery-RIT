@@ -17,12 +17,12 @@ function iniJawaban (angka, teks) {
     let resultJudul = judul (teks)
 
 
-    jawaban += `<h3> ${angka}</h3>`
-    jawaban += `<h3>hasil: ${teks} </h3>`
+    jawaban += `<h3> ${resultKeRupiah} , ${resultJudul}</h3>`
+    // jawaban += `<h3>hasil: ${resultJudul} </h3>`
 
 
     return jawaban
 }
 
-tagDiv86.innerHTML +=  iniJawaban("RP 1.500.000")
-tagDiv86.innerHTML +=  iniJawaban("Belajar Modular Javascript")
+tagDiv86.innerHTML +=  iniJawaban('Belajar Modular Javascript, RP 1.500.000')
+// tagDiv86.innerHTML +=  iniJawaban('Belajar Modular Javascript')
