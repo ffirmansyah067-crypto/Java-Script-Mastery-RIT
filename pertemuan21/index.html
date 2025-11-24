@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance Sheet</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+
+    
+    <form id="myform1" class="container">
+            <h1>Attendance Sheet</h1>
+            <div class="form-group">
+                <label for="input-teks">Teks Pendek:</label>
+                <input type="text" id="input-teks" placeholder="Masukkan nama Anda..." required>
+                <p id="err-msg-teks"></p>
+            </div>
+
+            <div class="form-group">
+                <label for="input-email">Alamat Email:</label>
+                <input type="text" id="input-email" placeholder="contoh@domain.com">
+                 <p id="err-msg-email"></p>
+            </div>
+
+            <div class="form-group">
+                <label for="input-password">Kata Sandi:</label>
+                <input type="password" id="input-password" placeholder="Minimal 8 karakter">
+                 <p id="err-msg-pw"></p>
+            </div>
+
+            <div class="form-group">
+                <label for="input-tanggal">Pilih Tanggal:</label>
+                <input type="date" id="input-tanggal">
+                 <p id="err-msg-tanggal"></p>
+            </div>
+
+            <!-- <div class="form-group">
+                <label for="input-range">Tingkat Kepuasan (0-100):</label>
+                <input type="range" id="input-range" min="0" max="100" value="50" oninput="document.getElementById('range-value').innerText = this.value">
+                <span id="range-value" class="range-display">50</span>
+                 <p id="err-msg-rate"></p>
+            </div> -->
+
+            <div class="form-group checkbox-group">
+                <label>Pilihan (Checkbox):</label>
+                <div>
+                    <input type="checkbox" id="pilihan1" name="pilihan" value="opsi1">
+                    <label for="pilihan1">Setuju Syarat & Ketentuan</label>
+                     <p id="err-msg-pilihan"></p>
+                </div>
+            </div>
+
+            <div class="form-group radio-group">
+                <label>Jenis Kelamin (Radio):</label>
+                <div class="radio-options">
+                    <input type="radio" id="pria" name="jenis_kelamin" value="pria" checked>
+                    <label for="pria">Pria</label>
+                    <input type="radio" id="wanita" name="jenis_kelamin" value="wanita">
+                    <label for="wanita">Wanita</label>
+                     <p id="err-msg-gender"></p>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="input-file">Unggah Berkas:</label>
+                <input type="file" id="input-file">
+            </div>
+
+            <div class="form-group">
+                <label for="input-area">Komentar (Textarea):</label>
+                <textarea id="input-area" rows="4" placeholder="Tulis komentar Anda di sini..."></textarea>
+            </div>
+
+            <div class="form-group submit-group">
+                <label>Kirim Data</label>
+                <button type="submit" class="submit-button">Submit Sekarang</button>
+            </div>
+
+            <script src="script.js"></script>
+
+        </form>
+</body>
+
+</html>

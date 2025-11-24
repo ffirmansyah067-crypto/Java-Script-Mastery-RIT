@@ -1,0 +1,7 @@
+.light { background: white; color: black; }
+.dark { background: black; color: white; }
+
+#box4 { width: 200px; height: 100px; background: skyblue; }
+
+input:focus { border: 2px solid blue; }
+.focused { box-shadow: 0 0 10px rgba(0,0,255,0.5); }
