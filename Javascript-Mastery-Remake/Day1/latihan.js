@@ -2,7 +2,6 @@
 //                   MATERI KNOWLEDGE
 // ===================================================================
 
-
 // STUDY CASE DENGAN (createElement())
 const buatElemenSimple = (tag, isi) => {
     const elemen = document.createElement(tag)
@@ -52,7 +51,13 @@ const cekNama = () => {
 
 
 // STUDY CASE DENGAN (typeof)
-const cekTypeData = (value) => console.log(typeof value );
+const cekTypeData = (value) => typeof value;
+
+// STUDY CASE DENGAN Array.isArray()
+const cekApakahArray = (arr) => Array.isArray(arr)
+
+// STUDYCASE DENGAN instanceof 
+const cekApakahBagianDari = (data,typeData) => data instanceof typeData
 
 // STUDY CASE DENGAN (substring())
 const ambilKarakterKe = () => {
@@ -77,6 +82,10 @@ const ubahKeHurufBesar = () => {
 }
 
 // STUDY CASE DENGAN (Object.assign())
+const salinObject = (paste, ...copy) => Object.assign(paste,...copy)
+
+// STUDYCASE DENGAN (Object.entries())
+const objToArray = (obj) => Object.entries(obj)
 
 
 
@@ -102,6 +111,12 @@ const buatNode = (node) => document.createTextNode(node)
 // STEP (Khusus Untuk Add Event Listener)
 const pasangEventListn = (elemen, namEvent, handler) => {
     elemen.addEventListener(namEvent, handler)
+}
+/////////////////////////////////////////////////////////////////
+
+// STEP (Set khusus Untuk Pasang Dataset)
+function pasangDataset(elemen, datasetObject = {}) {
+  salinObject(elemen.dataset,datasetObject) // datasetObject misal: { id: '123', role: 'card' }
 }
 /////////////////////////////////////////////////////////////////
 
@@ -133,16 +148,41 @@ const buatSatuAttribute = (tag, key, value) => {
 
 
 // STEP (Set Khusus Banyak Attribute)
-const tanganiBanyakAttribute = (tag, att = {}) => Object.entries(att).forEach(([k, v]) => buatSatuAttribute(tag, k, v))
+const tanganiBanyakAttribute = (tag, att = {}) => objToArray(att).forEach(([k, v]) => buatSatuAttribute(tag, k, v))
 /////////////////////////////////////////////////////////////////
 
 // STEP (Set Khusus Untuk pasang Class)
 const pasangClass = (tag, className) => tag.className = className
+/////////////////////////////////////////////////////////////////
 
-// STEP (Set khusus Untuk Pasang Dataset)
-function pasangDataset(elemen, datasetObject = {}) {
-  Object.assign(elemen.dataset, datasetObject); // datasetObject misal: { id: '123', role: 'card' }
+
+// STEP (Set Khusus Untuk Pasang 1 Child )
+const adopsiAnak = (elemen,child) => {
+
+    if (cekTypeData(child) === 'string' || cekTypeData(child) === 'number') {
+        const textNode = buatNode(child)
+        elemen.appendChild(textNode);
+
+    } else if (cekApakahBagianDari(child,Node)) {
+        elemen.appendChild(child);
+
+    } else if (cekApakahArray(child)) {
+        child.forEach(v => {
+            if (v) adopsiAnak(elemen,v)
+        })
+    }
 }
+
+// STEP (Set Khusus Untuk Pasang Child ke elemen)
+const pasangKeTag = (elemen, children = []) => {
+    children.forEach(v => {
+        adopsiAnak(elemen,v)
+    })
+}
+
+
+/////////////////////////////////////////////////////////////////
+
 
 // STEP (Set Ke Body di HTML)
 const addKeBody = (tag) => document.body.appendChild(tag)
@@ -150,21 +190,18 @@ const addKeBody = (tag) => document.body.appendChild(tag)
 
 
 
-
-
 // CUSTOM MANIPULASI DALAM MEMBUAT ELEMEN DENGAN BEBRBAGAI DOM
 //////////////////////////////////////////////////////
-const buatElemen = (tag, node, atributs = {}) => {
+const buatElemen = (tag,atributs = {}, ...children) => {
 
     let elemen = buatTag(tag)
 
-    if (node) {
-        let text = buatNode(node)
-        elemen.appendChild(text)
-    }
-
     if (atributs) {
         tanganiBanyakAttribute(elemen, atributs)
+    } 
+
+    if (children.length >= 1) {
+        pasangKeTag(elemen,children)
     }
 
     addKeBody(elemen)
@@ -173,21 +210,14 @@ const buatElemen = (tag, node, atributs = {}) => {
 
 
 
-// CREATE ELEMENT WITH (TAG,ATTRIBUTE,CHILDREN)
 
 
 
 
 
-
-
-
-
+//////////////////////////////////////////////////////////////////////////////////////
 // RUANG EKSKUSI PEMANGGILAN BERBAGAI FUNCTION YANG SUDAH DI BUAT
 //////////////////////////////////////////////////////////////////////////////////////
-
-buatElemen('div', 'undefined', { id: "1", class: 'neon-glow-btn', style: 'margin:5px',dataset:{id:'001',nama:"Nutrisari",price:'1000',category:'Minuman'}})
-
 
 ///////  Custom Handler For Add Event Listner 
 const tanyaNama = () => {
@@ -203,12 +233,33 @@ const tanyaMauBikinButtonBerapa = () => {
 
     if (total >= 1) {
         for (let i = 0; i < total; i++) {
-            buatElemen('button', `Button ${i + 1}`, { id: `id${i + 1}`, class: 'neon-glow-btn', style: 'margin:5px', onclick: () => alert(`SAYA BUTTON KE ${i + 1}`) })
+            buatElemen('button', { id: `id${i + 1}`, class: 'neon-glow-btn', style: 'margin:5px', onclick: () => alert(`SAYA BUTTON KE ${i + 1}`)}, `Button ${i + 1}`)
         }
     }
 }
 
 
+///////////////////////////////////////////
 
 
 
+///// Custom Manipulasi pada DATASET
+buatElemen('div', { id: "1", class: 'neon-glow-btn',dataset:{id:'001',nama:"Nutrisari",price:'1000',category:'Minuman'}},'SAMPLE DATA SET')
+let id1 = document.getElementById('1')
+
+console.log(id1.dataset);
+
+
+//// Custom Manipulasi 
+buatElemen('h1',{ id: "2"},"INI ID H1")
+let id2 = document.getElementById('2')
+
+buatElemen('button',{class: 'neon-glow-btn',style: 'margin:5px'},`Id: ${id1.dataset.id}`)
+buatElemen('button',{class: 'neon-glow-btn',style: 'margin:5px'},`Nama: ${id1.dataset.nama}`)
+buatElemen('button',{class: 'neon-glow-btn',style: 'margin:5px'},`Price: ${id1.dataset.price}`)
+
+buatElemen('p',{id:'btn-category',class: 'neon-glow-btn',style: 'margin:5px'},`Category: ${id1.dataset.category}`)
+let btnCategory = document.getElementById('btn-category')
+
+
+buatElemen('button',{class: 'neon-glow-btn',style: 'margin-top:50px',onclick:()=> adopsiAnak(btnCategory,id2)},`jadikan Anak`)
