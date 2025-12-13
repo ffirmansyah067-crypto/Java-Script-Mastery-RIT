@@ -58,3 +58,81 @@
   display: none;
 }
 
+/* Tema dasar */
+body {
+  background: white;
+  color: black;
+  transition: background 0.4s ease, color 0.4s ease;
+}
+
+/* Tema gelap */
+body.dark {
+  background: #0d0d0d;
+  color: #e6e6e6;
+}
+
+/* Container toggle */
+.toggle-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 20px;
+}
+
+/* Switch */
+.switch {
+  position: relative;
+  width: 60px;
+  height: 30px;
+  background: #ccc;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+/* Bulatan */
+.switch::after {
+  content: "";
+  position: absolute;
+  width: 26px;
+  height: 26px;
+  background: white;
+  border-radius: 50%;
+  top: 2px;
+  left: 2px;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+/* Mode gelap aktif */
+body.dark .switch {
+  background: #4a4a4a;
+  box-shadow: 0 0 10px #00eaff;
+}
+
+body.dark .switch::after {
+  transform: translateX(30px);
+  background: #00eaff;
+  box-shadow: 0 0 10px #00eaff;
+}
+
+/* Ikon */
+.icon {
+  font-size: 22px;
+  transition: opacity 0.3s ease;
+}
+
+.sun {
+  opacity: 1;
+}
+
+.moon {
+  opacity: 0;
+}
+
+body.dark .sun {
+  opacity: 0;
+}
+
+body.dark .moon {
+  opacity: 1;
+}

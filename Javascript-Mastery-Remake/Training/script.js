@@ -137,3 +137,45 @@ console.log(dataSiswa('Kanaya', 'Bogor',))
 
 //==============================================================================>
 
+
+// function bikinElemen2(tag, text, options = {}) {
+//   const el = document.createElement(tag);
+//   if (text) el.textContent = text;
+
+//   for (const key in options) {
+//     if (key === "onClick") {
+//       el.addEventListener("click", options[key]);
+//     } else {
+//       el.setAttribute(key, options[key]);
+//     }
+//   }
+
+//   return el;
+// }
+
+function darkMode() {
+  document.body.classList.toggle("dark");
+}
+// Wrapper
+const wrapper = bikinElemen2("div", "", { class: "toggle-wrapper" });
+
+// Ikon matahari
+const sunIcon = bikinElemen2("span", "☀️", { class: "icon sun" });
+
+// Switch
+const switchBtn = bikinElemen2("div", "", {
+  class: "switch",
+  onClick: () => darkMode()
+});
+
+// Ikon bulan
+const moonIcon = bikinElemen2("span", "🌙", { class: "icon moon" });
+
+// Susun
+wrapper.appendChild(sunIcon);
+wrapper.appendChild(switchBtn);
+wrapper.appendChild(moonIcon);
+
+document.body.appendChild(wrapper);
+
+
