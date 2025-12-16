@@ -23,6 +23,8 @@ utils.renderBanyakKartu(wadahAplikasi,db.myProduct)
 
 console.log(utils.diskonPersen1(10000, 10))
 
+
+
 // // 2. Ambil wadah dari index.html
 // const wadahAplikasi = document.getElementById('aplikasi');
 

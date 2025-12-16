@@ -2,21 +2,21 @@ export const myProduct = [
     {
         nama: "Kopi Susu Gula Aren",
         harga: 18000,
-        kategori: "Minuman",
+        kategori: "Minuman 🥤 SEGAR",
         stok: 10,
         diskon: 35, // Diskon Random
     },
     {
         nama: "Es Teh Manis",
         harga: 8000,
-        kategori: "Minuman",
+        kategori: "Minuman 🥤 SEGAR",
         stok: 10,
         diskon: 0, // Tidak didiskon
     },
     {
         nama: "Air Mineral",
         harga: 5000,
-        kategori: "Minuman",
+        kategori: "Minuman 🥤 SEGAR",
         stok: 10,
         diskon: 20, // Diskon Random
     },
@@ -24,14 +24,14 @@ export const myProduct = [
     {
         nama: "Jus Alpukat",
         harga: 22000,
-        kategori: "Minuman",
+        kategori: "Minuman 🥤 SEGAR",
         stok: 10,
         diskon: 25, // Diskon Random
     },
     {
         nama: "Kopi Hitam Americano",
         harga: 15000,
-        kategori: "Minuman",
+        kategori: "Minuman 🥤 SEGAR",
         stok: 10,
         diskon: 40, // Diskon Random
     },
@@ -41,7 +41,7 @@ export const myProduct = [
         nama: "Nasi Goreng Spesial",
         harga: 28500,
         kategori: "Makanan",
-        stok: 10,
+        stok: 0,
         diskon: 50, // Diskon Tertinggi
     },
     {
@@ -100,9 +100,9 @@ export const myProduct = [
     {
         nama: "Susu Coklat Mahal",
         harga: 50000,
-        kategori: "Minuman",
+        kategori: "Minuman 🥤 SEGAR",
         stok: 10,
-        diskon: 50, // Diskon Tertinggi
+        diskon: 0, // Diskon Tertinggi
     },
     {
         nama: "Iwak Lele Ngawi",
