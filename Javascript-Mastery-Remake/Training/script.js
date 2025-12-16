@@ -138,23 +138,8 @@ console.log(dataSiswa('Kanaya', 'Bogor',))
 //==============================================================================>
 
 
-// function bikinElemen2(tag, text, options = {}) {
-//   const el = document.createElement(tag);
-//   if (text) el.textContent = text;
-
-//   for (const key in options) {
-//     if (key === "onClick") {
-//       el.addEventListener("click", options[key]);
-//     } else {
-//       el.setAttribute(key, options[key]);
-//     }
-//   }
-
-//   return el;
-// }
-
 function darkMode() {
-  document.body.classList.toggle("dark");
+    document.body.classList.toggle("dark");
 }
 // Wrapper
 const wrapper = bikinElemen2("div", "", { class: "toggle-wrapper" });
@@ -164,8 +149,8 @@ const sunIcon = bikinElemen2("span", "☀️", { class: "icon sun" });
 
 // Switch
 const switchBtn = bikinElemen2("div", "", {
-  class: "switch",
-  onClick: () => darkMode()
+    class: "switch",
+    onClick: () => darkMode()
 });
 
 // Ikon bulan
@@ -179,3 +164,54 @@ wrapper.appendChild(moonIcon);
 document.body.appendChild(wrapper);
 
 
+const p1 = (nama) => nama ? `Nama: ${nama}` : 'Nama: Kosong'
+const p2 = (kelas) => kelas ? `Kelas: ${kelas}` : 'Kelas: Kosong'
+const p3 = (nilai) => nilai ? `Nilai: ${nilai}` : 'Nilai: Kosong'
+
+let dataSiswi = (nama = '', kelas = '', nilai = '') => {
+    let x = p1(nama)
+    let y = p2(kelas)
+    let z = p3(nilai)
+
+    return `${x} | ${y} | ${z}`
+}
+
+console.log((dataSiswi)('Mona', 'IPA2', '90',))
+
+
+function hitungJarak(kilometer) {
+    if (typeof kilometer !== 'number' || isNaN(kilometer)) {
+        return 'Input harus berupa angka';
+    }
+
+    const meter = kilometer * 1000;
+
+    return meter;
+}
+const jarakKm1 = 5;
+const jarakM1 = hitungJarak(jarakKm1);
+console.log(`${jarakKm1} km = ${jarakM1} m`);
+
+const jarakKm2 = 10;
+const jarakM2 = hitungJarak(jarakKm2)
+console.log(`${jarakKm2} km = ${jarakM2} m`)
+
+/**
+ * Memformat angka numerik ke representasi mata uang Dolar AS (USD).
+ *
+ * @param {number} angka - Nilai numerik yang ingin diformat.
+ * @returns {string} String yang diformat USD.
+ */
+function formatKeUSD(angka) {
+    // Menggunakan locale 'en-US' untuk standar pemformatan Amerika
+    return new Intl.NumberFormat('en-US', {
+        style: 'currency',  // Gaya mata uang
+        currency: 'USD',    // Mata uang Dolar AS
+        minimumFractionDigits: 0
+    }).format(angka);
+}
+const hargaMacbookM4 = 999
+console.log(formatKeUSD(hargaMacbookM4))
+
+const hargaMacbookProM4 = 1599
+console.log(formatKeUSD(hargaMacbookProM4))

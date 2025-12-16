@@ -1,4 +1,4 @@
 
 export * from './dom.js';
 export * from './format.js';
-export * from './ui.js'
+export * from './ui.js';
