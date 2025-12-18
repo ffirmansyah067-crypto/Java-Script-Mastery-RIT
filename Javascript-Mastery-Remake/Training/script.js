@@ -215,3 +215,5 @@ console.log(formatKeUSD(hargaMacbookM4))
 
 const hargaMacbookProM4 = 1599
 console.log(formatKeUSD(hargaMacbookProM4))
+
+

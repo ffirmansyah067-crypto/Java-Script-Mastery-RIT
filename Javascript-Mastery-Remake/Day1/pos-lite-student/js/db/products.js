@@ -1,5 +1,5 @@
 export const myProduct = [
-    {
+    {   
         nama: "Kopi Susu Gula Aren",
         harga: 18000,
         kategori: "Minuman 🥤 SEGAR",

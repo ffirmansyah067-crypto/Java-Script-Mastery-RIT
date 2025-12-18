@@ -52,3 +52,4 @@ export const diskonPersen1 = (hargaAwal = 0, diskon = 0) => {
 export const formatStok = (n) => 
   n > 0 ? `Stok: ${n}` : "Stok Habis";
 formatStok(stok.myProduct)
+

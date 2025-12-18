@@ -10,19 +10,43 @@ console.log("Mesin POS Lite dinyalakan..."); // Cek di Console Browser (F12)
 console.log(db.myProduct);
 //===========================================>
 
-
 // 2. Ambil wadah dari index.html
 const wadahAplikasi = document.getElementById('aplikasi');
+
+
+const katalog = "Katalog Produk"
+const buatKartuBaru = utils.buatElemen('h2', {style: 'text-align: center; color: blue; width: 100%;'}, katalog)
+wadahAplikasi.appendChild(buatKartuBaru)
 
 // Style yang lebih rapi
 const styleContainer = 'display: flex; align-items: start; flex-wrap: wrap; gap: 20px; padding:10px';
 wadahAplikasi.setAttribute('style',styleContainer)
 
+const produkMakanan = db.myProduct.filter(item => item.kategori === 'Makanan');
+const produkMakananUrut = produkMakanan.sort((a, b) => a.harga - b.harga); 
 
-utils.renderBanyakKartu(wadahAplikasi,db.myProduct)
+utils.renderBanyakKartu(wadahAplikasi,produkMakananUrut);
+console.log(produkMakananUrut);
 
-console.log(utils.diskonPersen1(10000, 10))
 
+
+utils.renderBanyakKartu(wadahAplikasi,db.myProduct);
+
+console.log(utils.diskonPersen1(10000, 10));
+
+const footer = "Manz"
+const buatFooter = utils.buatElemen('div',{style: 'background: blue; color: white; border: none; padding: 10px 20px; cursor: pointer; border-radius: 4px; width: 100%;',
+            // Event Listener (Klik)
+            onClick: () => {
+                alert("Copyright 2024")}}, footer)
+document.body.appendChild(buatFooter)
+
+
+
+
+// const katalog = "Katalog Produk"
+// const buatKartuBaru = utils.buatElemen('h2', {style: 'text-align: center; color: blue; width: 100%;'}, katalog)
+// wadahAplikasi.appendChild(buatKartuBaru)
 
 
 // // 2. Ambil wadah dari index.html

@@ -1,0 +1,2 @@
+parameter adalah variabel yang berada dalam tanda kurung sebuah function 
+parameter akan memiliki nilai ketika function tersebut digunakan dan diisi dengan sebuah nilai didalam tanda kurung si function

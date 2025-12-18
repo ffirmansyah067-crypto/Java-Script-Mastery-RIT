@@ -1,12 +1,15 @@
 import * as utils from './index.js';
-import * as products from './../db/index.js'
 
 
 // 4. Bikin Tampilan pakai fungsi sakti 'buatElemen'
 // Perhatikan betapa bersihnya kode ini dibanding document.createElement biasa!
+
+
+
 export const renderSingleKartu = (db = {}) => {
     const kartu = utils.buatElemen('div', { className: 'kartu-produk', style: 'border: 1px solid black; padding: 20px; max-width: 300px; border-radius: 8px;' },
-
+ 
+        
         // Badge Kategori
         utils.buatElemen('span', { style: 'background: #eee; padding: 8px 8px; border-radius: 4px; font-size: 12px;' }, db.kategori),
         
