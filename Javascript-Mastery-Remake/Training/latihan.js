@@ -99,3 +99,50 @@ const keranjang = [10000, 20000, 5000];
 const totalBayar = keranjang.reduce((total, harga) => total + harga, 0);
 
 console.log(totalBayar); // 35000
+
+
+// STUDY CASE BROOOO
+const daftarSiswa = [
+    {
+        nama: "Fathir Al-Ghazali",
+        kelas: "XI RPL 1",
+        umur: 17,
+        alamat: "Jl. Melati No. 12, Jakarta"
+    },
+    {
+        nama: "Anastasia Diningrat",
+        kelas: "XI RPL 2",
+        umur: 16,
+        alamat: "Jl. Mawar No. 5, Bandung"
+    },
+    {
+        nama: "Rangga Wijaya",
+        kelas: "XI RPL 1",
+        umur: 17,
+        alamat: "Jl. Dahlia No. 20, Surabaya"
+    }
+];
+
+for (let i = 0; i < daftarSiswa.length; i++) {
+console.log(`Nama: ${daftarSiswa[i].nama}, Kelas: ${daftarSiswa[i].kelas}`);
+}
+
+daftarSiswa.forEach(siswa => {
+    console.log(`${siswa.nama} Kelas ${siswa.kelas} Umur ${siswa.umur} Tinggal di ${siswa.alamat}`);
+    
+});
+
+let listingData3 = (data) => {
+    data.forEach(v => {
+        let collect = '';
+        let result = Object.entries(v) // {key1:"Value1",key2:"Value2"} => [["key","value1"],["key2","value2"]]
+        result.forEach(([k,v])=> {
+            collect += `${k}: ${v} | `            
+        })
+        if (collect) {
+            console.log(collect);
+        }
+    })
+}
+
+listingData3(daftarSiswa)

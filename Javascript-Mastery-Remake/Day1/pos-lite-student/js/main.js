@@ -41,7 +41,9 @@ const buatFooter = utils.buatElemen('div',{style: 'background: blue; color: whit
                 alert("Copyright 2024")}}, footer)
 document.body.appendChild(buatFooter)
 
-
+let cari = "susu"
+let hasil = db.myProduct.filter(item => item.nama.toLowerCase().includes(cari))
+console.log(hasil)
 
 
 // const katalog = "Katalog Produk"
