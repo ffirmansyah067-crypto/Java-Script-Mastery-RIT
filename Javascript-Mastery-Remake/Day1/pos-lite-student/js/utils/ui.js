@@ -1,6 +1,5 @@
 import * as utils from './index.js';
 
-
 // 4. Bikin Tampilan pakai fungsi sakti 'buatElemen'
 // Perhatikan betapa bersihnya kode ini dibanding document.createElement biasa!
 
