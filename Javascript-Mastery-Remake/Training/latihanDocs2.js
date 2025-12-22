@@ -75,35 +75,206 @@ const daftarProduk = [
 ];
 
 // Cara akses data produk ke-4 (Headset Gaming)
-console.log(daftarProduk[3].nama); // Output: Headset Gaming
+// console.log(daftarProduk[3].nama); // Output: Headset Gaming
 
 let jadiJson = (daftarProduk) => JSON.stringify(daftarProduk)
 let hasilProduk = jadiJson(daftarProduk)
-console.log(hasilProduk);
+// console.log(hasilProduk);
 
-let ubahKeJs = (data = '') => {
-    try {
-        let result = JSON.parse(data)
-        console.log('ANJAY LU BERHASIL BRAY');
-        return result
-    } catch (error) {
-        console.error(error.message);
-         if (error.message.includes('Unexpected non-whitespace character after JSON')) {
-            console.error(`ERROR 001 => Penyebabnya: Format JSON ganda atau terdapat karakter sampah setelah objek utama.`);
-        } else if (error.message.includes('is not valid JSON') ) {
-            console.error("ERROR 002 => Penyebabnya: Format JSON rusak: Terdapat kesalahan penulisan simbol atau karakter ilegal.");
-        } else if (error.message.includes('Unexpected token')) {
-            console.error("ERROR 003 => Penyebabnya: Data bukan JSON: Kamuy mengirim format HTML/Teks mungkin ya. Cek data yang kamu kirim.");   
-        }
-        else {
-            console.error('error baru belom dikenali');
-        }
-    }
+// let ubahKeJs = (data = '') => {
+//     try {
+//         let result = JSON.parse(data)
+//         console.log('ANJAY LU BERHASIL BRAY');
+//         return result
+//     } catch (error) {
+//         console.error(error.message);
+//          if (error.message.includes('Unexpected non-whitespace character after JSON')) {
+//             console.error(`ERROR 001 => Penyebabnya: Format JSON ganda atau terdapat karakter sampah setelah objek utama.`);
+//         } else if (error.message.includes('is not valid JSON') ) {
+//             console.error("ERROR 002 => Penyebabnya: Format JSON rusak: Terdapat kesalahan penulisan simbol atau karakter ilegal.");
+//         } else if (error.message.includes('Unexpected token')) {
+//             console.error("ERROR 003 => Penyebabnya: Data bukan JSON: Kamuy mengirim format HTML/Teks mungkin ya. Cek data yang kamu kirim.");   
+//         }
+//         else {
+//             console.error('error baru belom dikenali');
+//         }
+//     }
         
-}
+// }
 
 let json2 = jadiJson(daftarProduk)
 let err1 = json += 'Test'
 let err2 = json2.substring(10)
-ubahKeJs(err2) // 
-console.log("INI KODE LAIN HARUS JALAN MAU NGGK MAU");
+// ubahKeJs(err2) 
+// console.log("INI KODE LAIN HARUS JALAN MAU NGGK MAU");
+
+
+const daftarNegara = [
+  { id: 1, negara: "Indonesia", ibukota: "Nusantara", populasi: 278000000, benua: "Asia", mataUang: "IDR" },
+  { id: 2, negara: "Jepang", ibukota: "Tokyo", populasi: 125000000, benua: "Asia", mataUang: "JPY" },
+  { id: 3, negara: "Jerman", ibukota: "Berlin", populasi: 83000000, benua: "Eropa", mataUang: "EUR" },
+  { id: 4, negara: "Brasil", ibukota: "Brasilia", populasi: 214000000, benua: "Amerika", mataUang: "BRL" },
+  { id: 5, negara: "Mesir", ibukota: "Kairo", populasi: 109000000, benua: "Afrika", mataUang: "EGP" },
+  { id: 6, negara: "Australia", ibukota: "Canberra", populasi: 26000000, benua: "Australia", mataUang: "AUD" },
+  { id: 7, negara: "Kanada", ibukota: "Ottawa", populasi: 38000000, benua: "Amerika", mataUang: "CAD" }
+];
+
+// Cara akses ibukota Mesir:
+// console.log(daftarNegara[4].ibukota); // Output: Kairo
+
+// Cara ambil value populasi
+// console.log(daftarNegara[1].populasi); // 125000000
+
+// Cara ambil value benua
+// console.log(daftarNegara[6].benua); // Amerika
+
+// Cara ambil value mata uang 
+// console.log(daftarNegara[2].mataUang); // EUR
+
+
+
+let toJson = (daftarNegara) => JSON.stringify(daftarNegara)
+let hasilDaftarNegara = toJson(daftarNegara)
+// console.log(hasilDaftarNegara);
+
+let toJsDaftarNegara = (data = '') => JSON.parse(data)
+let hasilNegara = toJsDaftarNegara(hasilDaftarNegara)
+// console.log(hasilNegara);
+
+
+// 3
+const destinasiIkonik = [
+  {
+    id: "BMA-01",
+    nama: "Pulau Satonda",
+    lokasi: "Dompu, NTB",
+    rating: 4.8,
+    fiturUtama: ["Danau Air Asin", "Snorkeling", "Legenda Pohon Harapan"],
+    isPopuler: true
+  },
+  {
+    id: "BMA-02",
+    nama: "Gunung Tambora",
+    lokasi: "Bima/Dompu",
+    rating: 4.9,
+    fiturUtama: ["Kaldera Terbesar", "Jalur Pendakian", "Situs Geologi"],
+    isPopuler: true
+  },
+  {
+    id: "BMA-03",
+    nama: "Pantai Lariti",
+    lokasi: "Lambu, Bima",
+    rating: 4.7,
+    fiturUtama: ["Laut Terbelah", "Pasir Putih", "Dekat Pulau Kelapa"],
+    isPopuler: false
+  },
+  {
+    id: "BMA-04",
+    nama: "Situs Uma Lengge",
+    lokasi: "Wawo, Bima",
+    rating: 4.6,
+    fiturUtama: ["Rumah Adat Tradisional", "Lumbung Padi", "Wisata Budaya"],
+    isPopuler: false
+  }
+];
+
+// Contoh penggunaan: Menampilkan semua destinasi yang punya rating di atas 4.7
+const wisataFavorit = destinasiIkonik.filter(tempat => tempat.rating > 4.7);
+// console.log(wisataFavorit);
+
+const toJsonWisFav = (destinasiIkonik) => JSON.stringify(destinasiIkonik)
+let hasilWisFav = toJsonWisFav(destinasiIkonik)
+// console.log(hasilWisFav);
+
+const toJsWisFav = (data = '') => JSON.parse(data)
+let hasilJs = toJsWisFav(hasilWisFav)
+// console.log(hasilJs);
+
+
+// MENYIMPAN DATA SELURUH DATA KE LOCAL STORAGE
+const KUNCI_PENYIMPANAN = {
+    STATE_POS: 'pos_state', // Gudang Utama (Produk, Transaksi, dll)
+    PENGGUNA_SAAT_INI: 'pos_pengguna_saat_ini' // Sesi Login (Terpisah biar aman)
+};
+
+// Data state yang mau disimpan
+const statePos = {
+  produk: {
+    daftar: [
+      { id: 1, nama: 'Teh Botol', harga: 5000, stok: 20 },
+      { id: 2, nama: 'Kopi Hitam', harga: 7000, stok: 15 }
+    ]
+  },
+  transaksi: {
+    keranjang: [],
+    riwayat: []
+  }
+};
+
+// Simpan ke localStorage
+localStorage.setItem(KUNCI_PENYIMPANAN.STATE_POS, JSON.stringify(statePos));
+
+// Ambil item darilocalStorage
+// Kita akan memperbarui data diatas
+let dataPos = JSON.parse(localStorage.getItem(KUNCI_PENYIMPANAN.STATE_POS)) || {transaksi: { keranjang: []}}
+dataPos.transaksi.keranjang.push({id: 3, nama: 'Iwak Lele', harga: 10000})
+
+localStorage.setItem(KUNCI_PENYIMPANAN.STATE_POS, JSON.stringify(dataPos));
+
+// Part 2
+// Aku mau nambahin riwayat pembelian
+let dataPos2 = JSON.parse(localStorage.getItem(KUNCI_PENYIMPANAN.STATE_POS)) || {transaksi: { riwayat: []}}
+dataPos2.transaksi.riwayat.push({id: 4, nama: 'Yamaha RX-KING', harga: 15000000, stok: 1})
+
+localStorage.setItem(KUNCI_PENYIMPANAN.STATE_POS, JSON.stringify(dataPos2));
+
+// POS PENGGUNA SAAT INI
+const daftarPengguna1 = [{
+  id: 101,
+  nama: "Firmansyah",
+  peran: "kasir", // atau "admin"
+  waktuLogin: new Date().toISOString(),
+  preferensi: {
+    tema: "gelap",
+    bahasa: "id"
+  }
+}];
+
+// Simpan ke localStorage
+localStorage.setItem(KUNCI_PENYIMPANAN.PENGGUNA_SAAT_INI, JSON.stringify(daftarPengguna1));
+
+
+// Nambah key dan value pada local storage, tanpa merubah sebelumnya
+const tambahEmail = JSON.parse(localStorage.getItem('pos_pengguna_saat_ini'))
+tambahEmail.email = "FirmansyahJaGoNGODING.com"
+localStorage.setItem('pos_pengguna_saat_ini', JSON.stringify(tambahEmail))
+ 
+// Kali ini aku akan menambah pengguna 
+let daftarPengguna2 = JSON.parse(localStorage.getItem('pos_pengguna_saat_ini')) || []
+const pengguna2 = {
+  id: 102,
+  nama: "Natasha",
+  peran: "admin", // atau "kasir"
+  waktuLogin: new Date().toISOString(),
+  preferensi: {
+    tema: "terang",
+    bahasa: "en"
+  }
+};
+daftarPengguna2.push(pengguna2);
+localStorage.setItem('pos_pengguna_saat_ini', JSON.stringify([daftarPengguna2]));
+
+// Cobain lagi tambah orang ketiga
+let daftarPengguna3 = JSON.parse(localStorage.getItem('pos_pengguna_saat_ini'))
+const pengguna3 = {
+  id: 103,
+  nama: "Wonyoung",
+  peran: "kasir", // atau "admin"
+  waktuLogin: new Date().toDateString(),
+  preferensi: {
+    tema: "terang",
+    bahasa: "id/en"
+  }
+};
+daftarPengguna3.push(pengguna3)
+localStorage.setItem('pos_pengguna_saat_ini', JSON.stringify([daftarPengguna3]))
