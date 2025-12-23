@@ -194,7 +194,8 @@ let hasilJs = toJsWisFav(hasilWisFav)
 // MENYIMPAN DATA SELURUH DATA KE LOCAL STORAGE
 const KUNCI_PENYIMPANAN = {
     STATE_POS: 'pos_state', // Gudang Utama (Produk, Transaksi, dll)
-    PENGGUNA_SAAT_INI: 'pos_pengguna_saat_ini' // Sesi Login (Terpisah biar aman)
+    PENGGUNA_SAAT_INI: 'pos_pengguna_saat_ini', // Sesi Login (Terpisah biar aman)
+    LACI_TERLARANG: 'pos_laci_terlarang'
 };
 
 // Data state yang mau disimpan
@@ -227,6 +228,41 @@ let dataPos2 = JSON.parse(localStorage.getItem(KUNCI_PENYIMPANAN.STATE_POS)) || 
 dataPos2.transaksi.riwayat.push({id: 4, nama: 'Yamaha RX-KING', harga: 15000000, stok: 1})
 
 localStorage.setItem(KUNCI_PENYIMPANAN.STATE_POS, JSON.stringify(dataPos2));
+
+
+const produkFavorit = [
+  {
+    kode: "A001",
+    namaProduk: "Espresso Senja",
+    kategori: "Minuman",
+    harga: 25000,
+    stok: true
+  },
+  {
+    kode: "A002",
+    namaProduk: "Latte Malam",
+    kategori: "Minuman",
+    harga: 30000,
+    stok: false
+  },
+  {
+    kode: "B101",
+    namaProduk: "Brownies Kopi",
+    kategori: "Makanan",
+    harga: 20000,
+    stok: true
+  },
+  {
+    kode: "C501",
+    namaProduk: "Merchandise Mug",
+    kategori: "Merchandise",
+    harga: 50000,
+    stok: true
+  }
+];
+// localStorage.setItem(KUNCI_PENYIMPANAN.STATE_POS, JSON.stringify([produkFavorit]))
+
+
 
 // POS PENGGUNA SAAT INI
 const daftarPengguna1 = [{
@@ -278,3 +314,118 @@ const pengguna3 = {
 };
 daftarPengguna3.push(pengguna3)
 localStorage.setItem('pos_pengguna_saat_ini', JSON.stringify([daftarPengguna3]))
+
+
+//===========================>
+
+const simpanDataPos= (data) => {
+    try{
+      console.log(data);
+      
+      const stringJson = JSON.stringify(data);
+
+      console.log(stringJson);
+      
+
+    } catch (err) {
+        console.error(err.message);
+        
+    }
+}
+
+simpanDataPos('tes')
+
+
+
+// LACI TERLARANG💀
+// TOP SECRET !!!
+
+const secretFiles = [
+  {
+    kode: "SEC001",
+    judul: "Operasi Senja",
+    level: "Top Secret",
+    lokasi: "Gudang Bawah Tanah"
+  },
+  {
+    kode: "SEC002",
+    judul: "Proyek Aurora",
+    level: "Confidential",
+    lokasi: "Laboratorium Rahasia"
+  },
+  {
+    kode: "SEC003",
+    judul: "Dokumen Bayangan",
+    level: "Restricted",
+    lokasi: "Arsip Tersembunyi"
+  },
+  {
+    kode: "SEC004",
+    judul: "Misi Phantom",
+    level: "Classified",
+    lokasi: "Pulau Terisolasi"
+  },
+  {
+    kode: "SEC005",
+    judul: "Kunci Dimensi",
+    level: "Ultra Secret",
+    lokasi: "Ruang Server Gelap"
+  },
+  {
+    kode: "SEC006",
+    judul: "Catatan Oracle",
+    level: "Confidential",
+    lokasi: "Perpustakaan Terkunci"
+  },
+  {
+    kode: "SEC007",
+    judul: "Protokol Abyss",
+    level: "Top Secret",
+    lokasi: "Bunker Rahasia"
+  }
+];
+
+// KITA SIMPAN DULU DATA DATA RAHASIA INI GAIS 😈
+const rahasiaJson = secretFiles
+localStorage.setItem(KUNCI_PENYIMPANAN.LACI_TERLARANG, JSON.stringify(rahasiaJson))
+
+// KITA COBA AMBIL DATA RAHASIA NYA COY🙂‍↕🥶
+console.log(localStorage.getItem(KUNCI_PENYIMPANAN.LACI_TERLARANG));
+
+// AMBIL LEBIH SPESIFIK GAISS🤭
+let spesifikSecret = rahasiaJson
+// let dataSecret = localStorage.getItem(KUNCI_PENYIMPANAN.LACI_TERLARANG, JSON.parse(spesifikSecret[1].judul));
+console.log(spesifikSecret[1]);
+console.log(spesifikSecret[6].level);
+
+
+
+
+
+// const KUNCI_PENYIMPANAN2 = {
+//     STATE_POS: 'pos_state', 
+//     PENGGUNA_SAAT_INI: 'pos_pengguna_saat_ini',
+//     DEV_LOG: "pos_developer_logging" 
+// };
+
+// const data = {
+//     nama: "Bambang",
+//     kelas: "1",
+//     alamat : "bekasi"
+// }
+
+// // console.log(data.nama); // Bambang
+// // console.log(data.alamat); // Bekasi
+
+
+// localStorage.setItem(KUNCI_PENYIMPANAN2.STATE_POS,"INI TEST SIMPAN DATA")
+// // localStorage.setItem('pos_state',"INI TEST SIMPAN DATA")
+// localStorage.setItem(KUNCI_PENYIMPANAN2.DEV_LOG,"(DEV) BERHASIL SIMPAN : INI TEST SIMPAN DATA")
+
+// localStorage.setItem(KUNCI_PENYIMPANAN2.PENGGUNA_SAAT_INI,"INI TEST SIMPAN DATA PENGGUNA")
+// // localStorage.setItem('pos_pengguna_saat_ini' ,"INI TEST SIMPAN DATA PENGGUNA")
+
+// console.log(`Data yang ada Simpan adalah: ${localStorage.getItem(KUNCI_PENYIMPANAN2.STATE_POS)} `);
+// // console.log(`Data yang ada Simpan adalah: ${localStorage.getItem('pos_state')} `);
+
+// console.log(localStorage.getItem(KUNCI_PENYIMPANAN2.DEV_LOG));
