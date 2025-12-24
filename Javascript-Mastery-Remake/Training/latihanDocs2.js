@@ -29,13 +29,13 @@ let hasil = ubahKeJson(daftarCharger)
 //             console.log(`404 => Error telah terjadi`);
 //         } else {
 //             console.log('error baru belum dikenali');
-            
+
 //         }
 //     }
 // }
 
 let json = ubahKeJson(daftarCharger)
-json += {merk: 'Mtech'}
+json += { merk: 'Mtech' }
 // ubahKeJs(json)
 // console.log("Kode ini pasti jalan padahal diatas error");
 
@@ -99,7 +99,7 @@ let hasilProduk = jadiJson(daftarProduk)
 //             console.error('error baru belom dikenali');
 //         }
 //     }
-        
+
 // }
 
 let json2 = jadiJson(daftarProduk)
@@ -193,9 +193,10 @@ let hasilJs = toJsWisFav(hasilWisFav)
 
 // MENYIMPAN DATA SELURUH DATA KE LOCAL STORAGE
 const KUNCI_PENYIMPANAN = {
-    STATE_POS: 'pos_state', // Gudang Utama (Produk, Transaksi, dll)
-    PENGGUNA_SAAT_INI: 'pos_pengguna_saat_ini', // Sesi Login (Terpisah biar aman)
-    LACI_TERLARANG: 'pos_laci_terlarang'
+  STATE_POS: 'pos_state', // Gudang Utama (Produk, Transaksi, dll)
+  PENGGUNA_SAAT_INI: 'pos_pengguna_saat_ini', // Sesi Login (Terpisah biar aman)
+  LACI_TERLARANG: 'pos_laci_terlarang',
+  LACI_ORANG_TULUS: 'pos_laci_orang_tulus'
 };
 
 // Data state yang mau disimpan
@@ -217,15 +218,15 @@ localStorage.setItem(KUNCI_PENYIMPANAN.STATE_POS, JSON.stringify(statePos));
 
 // Ambil item darilocalStorage
 // Kita akan memperbarui data diatas
-let dataPos = JSON.parse(localStorage.getItem(KUNCI_PENYIMPANAN.STATE_POS)) || {transaksi: { keranjang: []}}
-dataPos.transaksi.keranjang.push({id: 3, nama: 'Iwak Lele', harga: 10000})
+let dataPos = JSON.parse(localStorage.getItem(KUNCI_PENYIMPANAN.STATE_POS)) || { transaksi: { keranjang: [] } }
+dataPos.transaksi.keranjang.push({ id: 3, nama: 'Iwak Lele', harga: 10000 })
 
 localStorage.setItem(KUNCI_PENYIMPANAN.STATE_POS, JSON.stringify(dataPos));
 
 // Part 2
 // Aku mau nambahin riwayat pembelian
-let dataPos2 = JSON.parse(localStorage.getItem(KUNCI_PENYIMPANAN.STATE_POS)) || {transaksi: { riwayat: []}}
-dataPos2.transaksi.riwayat.push({id: 4, nama: 'Yamaha RX-KING', harga: 15000000, stok: 1})
+let dataPos2 = JSON.parse(localStorage.getItem(KUNCI_PENYIMPANAN.STATE_POS)) || { transaksi: { riwayat: [] } }
+dataPos2.transaksi.riwayat.push({ id: 4, nama: 'Yamaha RX-KING', harga: 15000000, stok: 1 })
 
 localStorage.setItem(KUNCI_PENYIMPANAN.STATE_POS, JSON.stringify(dataPos2));
 
@@ -284,7 +285,7 @@ localStorage.setItem(KUNCI_PENYIMPANAN.PENGGUNA_SAAT_INI, JSON.stringify(daftarP
 const tambahEmail = JSON.parse(localStorage.getItem('pos_pengguna_saat_ini'))
 tambahEmail.email = "FirmansyahJaGoNGODING.com"
 localStorage.setItem('pos_pengguna_saat_ini', JSON.stringify(tambahEmail))
- 
+
 // Kali ini aku akan menambah pengguna 
 let daftarPengguna2 = JSON.parse(localStorage.getItem('pos_pengguna_saat_ini')) || []
 const pengguna2 = {
@@ -318,19 +319,19 @@ localStorage.setItem('pos_pengguna_saat_ini', JSON.stringify([daftarPengguna3]))
 
 //===========================>
 
-const simpanDataPos= (data) => {
-    try{
-      console.log(data);
-      
-      const stringJson = JSON.stringify(data);
+const simpanDataPos = (data) => {
+  try {
+    console.log(data);
 
-      console.log(stringJson);
-      
+    const stringJson = JSON.stringify(data);
 
-    } catch (err) {
-        console.error(err.message);
-        
-    }
+    console.log(stringJson);
+
+
+  } catch (err) {
+    console.error(err.message);
+
+  }
 }
 
 simpanDataPos('tes')
@@ -397,6 +398,71 @@ let spesifikSecret = rahasiaJson
 // let dataSecret = localStorage.getItem(KUNCI_PENYIMPANAN.LACI_TERLARANG, JSON.parse(spesifikSecret[1].judul));
 console.log(spesifikSecret[1]);
 console.log(spesifikSecret[6].level);
+
+// ADA SECRET FILES BARU?
+// DAN DATANYA BAKALAN AKU MASUKIN SEBAGAI KODE SEC008😱!
+let secretBaru = JSON.parse(localStorage.getItem('pos_laci_terlarang'))
+const fileBaru = {
+  kode: "SEC008",
+  judul: "Raja Lele From Ngawi",
+  level: "Top Secret",
+  lokasi: "Kolam Penampungan Lele"
+};
+secretBaru.push(fileBaru)
+localStorage.setItem('pos_laci_terlarang', JSON.stringify([secretBaru]))
+
+// AKU MAU TAU LOKASI SEC008 DIMANA💀
+// JADI KITA AKAN AMBIL KEY NYA AGAR KITA TAU VALUE NYA🥶
+let lokasiSec8 = secretBaru
+console.log(lokasiSec8[7]);
+console.log(lokasiSec8[7].lokasi);
+
+
+// WONG TULUS WAYAHE TAMPIL🥵
+const laguGalauIndo = [
+  {
+    kode: "LG001",
+    judul: "Tentang Aku Kau dan Dia",
+    penyanyi: "Kangen Band",
+    tema: "Cinta Segitiga"
+  },
+  {
+    kode: "LG002",
+    judul: "Bukan Dia Tapi Aku",
+    penyanyi: "Judika",
+    tema: "Patah Hati"
+  },
+  {
+    kode: "LG003",
+    judul: "Tanpa Cinta",
+    penyanyi: "Yovie & Nuno",
+    tema: "Kesepian"
+  },
+  {
+    kode: "LG004",
+    judul: "Akhir Tak Bahagia",
+    penyanyi: "Misellia",
+    tema: "Perpisahan"
+  },
+  {
+    kode: "LG005",
+    judul: "Masing Masing",
+    penyanyi: "Ernie Zakri & Ade Govinda",
+    tema: "Berjalan Sendiri"
+  },
+  {
+    kode: "LG006",
+    judul: "Tak Ingin Usai",
+    penyanyi: "Keisya Levronka",
+    tema: "Tidak Rela Berpisah"
+  }
+];
+
+// KITA SIMPAN DULU YA BUAT NGEGALAU NIH😖
+const orangTulus = laguGalauIndo
+localStorage.setItem(KUNCI_PENYIMPANAN.LACI_ORANG_TULUS, JSON.stringify(orangTulus))
+
+
 
 
 
